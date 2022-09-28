@@ -1,0 +1,352 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title> &ndash; Adders &amp; Logic Gates in Pure CSS</title>
+	<meta name="viewport" content="width=device-width" />
+	<link href="//fonts.googleapis.com/css?family=PT+Sans:400,400italic" rel="stylesheet" type="text/css" />
+	<link href="styles/layout.css" rel="stylesheet" />
+	<link href="styles/gate-theme.css" rel="stylesheet" />
+	<link href="styles/basic-gates.css" rel="stylesheet" />
+	<link href="styles/chained-adder.css" rel="stylesheet" />
+	<link href="styles/decimal-adder.css" rel="stylesheet" />
+
+	<meta name="theme-color" content="#3F51B5">
+	<meta name="msapplication-TileColor" content="#3F51B5">
+	<link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180x180.png">
+	<link rel="icon" type="image/png" href="/icons/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/icons/favicon-194x194.png" sizes="194x194">
+	<link rel="icon" type="image/png" href="/icons/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="/icons/android-chrome-192x192.png" sizes="192x192">
+	<link rel="icon" type="image/png" href="/icons/favicon-16x16.png" sizes="16x16">
+	<link rel="manifest" href="/icons/manifest.json">
+	<meta name="msapplication-TileImage" content="/icons/mstile-144x144.png">
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-3656687-6', 'auto');
+		ga('send', 'pageview');
+	</script>
+</head>
+
+<body>
+	<nav>
+		<a href="#gates" id="gates" tabindex="1">Logic Gates</a>
+		<section>
+			<div class="ShrinkWrap">
+				<p>
+					<a href="http://en.wikipedia.org/wiki/Logic_gate">Logic gates</a> are the basis of all of computing.  They take two binary inputs (0/1 or true/false), and result in a binary output whose value depends on the inputs.  These gates form the building blocks upon which all computers are built.
+				</p>
+				<p>
+					Here are the three basic logic gates: AND (true only when both inputs are true), OR (true when either input is true), and XOR (eXclusive or, true only when exactly one input is true, but not both).  Click the inputs (square boxes) to see the outputs reflect the values.
+				</p>
+				<ul class="CanvasList">
+					<li>
+						<h2>And Gate</h2>
+						<div class="Canvas" style="width: 9rem; height: 17rem;">
+							<input type="checkbox" id="simple-and-a" style="top: 0; left: 0;" />
+							<label for="simple-and-a" style="top: 0; left: 0;"></label>
+							<div class="Group">
+								<div class="Connector Vertical" style="top: 3rem; left: 1.5rem; height: 2rem;"></div>
+								<div class="Connector Horizontal Corner Left Up" style="top: 5rem; left: 1.5rem; width: 2rem;"></div>
+								<div class="Connector Vertical Corner Left" style="top: 5rem; left: 3.5rem; height: 2rem;"></div>
+							</div>
+
+							<input type="checkbox" id="simple-and-b" style="top: 0; left: 6rem;" />
+							<label for="simple-and-b" style="top: 0; left: 6rem;"></label>
+							<div class="Group">
+								<div class="Connector Vertical" style="top: 3rem; left: 7.5rem; height: 2rem;"></div>
+								<div class="Connector Horizontal Corner Right Up" style="top: 5rem; left: 5.5rem; width: 2rem;"></div>
+								<div class="Connector Vertical Corner Right" style="top: 5rem; left: 5.5rem; height: 2rem;"></div>
+							</div>
+
+							<div id="simple-and-gate" class="Gate AND" style="left: 2.5rem; top: 7rem;">
+								<span></span>
+								<span></span>
+								<div></div>
+							</div>
+							<div class="Group">
+								<div class="Connector Vertical" style="top: 12rem; left: 4.5rem; height: 2rem;"></div>
+								<div class="Result" style="left: 3rem; top: 14rem;"></div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<h2>Or Gate</h2>
+						<div class="Canvas" style="width: 9rem; height: 17rem;">
+							<input type="checkbox" id="simple-or-a" style="top: 0.5rem; left: 0;" />
+							<label for="simple-or-a" style="top: 0.5rem; left: 0;"></label>
+							<div class="Group">
+								<div class="Connector Vertical" style="top: 3.5rem; left: 1.5rem; height: 2rem;"></div>
+								<div class="Connector Horizontal Corner Left Up" style="top: 5.5rem; left: 1.5rem; width: 2rem;"></div>
+								<div class="Connector Vertical Corner Left" style="top: 5.5rem; left: 3.5rem; height: 2rem;"></div>
+								<div class="Connector Vertical Convex Left" style="top: 7.5rem; left: 3.5rem;"></div>
+							</div>
+
+							<input type="checkbox" id="simple-or-b" style="top: 0.5rem; left: 6rem;" />
+							<label for="simple-or-b" style="top: 0.5rem; left: 6rem;"></label>
+							<div class="Group">
+								<div class="Connector Vertical" style="top: 3.5rem; left: 7.5rem; height: 2rem;"></div>
+								<div class="Connector Horizontal Corner Right Up" style="top: 5.5rem; left: 5.5rem; width: 2rem;"></div>
+								<div class="Connector Vertical Corner Right" style="top: 5.5rem; left: 5.5rem; height: 2rem;"></div>
+								<div class="Connector Vertical Convex Right" style="top: 7.5rem; left: 5.5rem;"></div>
+							</div>
+
+							<div id="simple-or-gate" class="Gate OR" style="left: 2.5rem; top: 7.5rem;">
+								<span></span>
+								<span></span>
+								<div></div>
+							</div>
+							<div class="Group">
+								<div class="Connector Vertical" style="top: 11.5rem; left: 4.5rem; height: 2rem;"></div>
+								<div class="Result" style="left: 3rem; top: 13.5rem;"></div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<h2>XOR Gate</h2>
+						<div class="Canvas" style="width: 9rem; height: 17rem;">
+							<input type="checkbox" id="simple-xor-a" style="top: 0; left: 0;" />
+							<label for="simple-xor-a" style="top: 0; left: 0;"></label>
+							<div class="Group">
+								<div class="Connector Vertical" style="top: 3rem; left: 1.5rem; height: 2rem;"></div>
+								<div class="Connector Horizontal Corner Left Up" style="top: 5rem; left: 1.5rem; width: 2rem;"></div>
+								<div class="Connector Vertical Corner Left" style="top: 5rem; left: 3.5rem; height: 2rem;"></div>
+								<div class="Connector Vertical Convex Left" style="top: 7rem; left: 3.5rem;"></div>
+							</div>
+
+							<input type="checkbox" id="simple-xor-b" style="top: 0; left: 6rem;" />
+							<label for="simple-xor-b" style="top: 0; left: 6rem;"></label>
+							<div class="Group">
+								<div class="Connector Vertical" style="top: 3rem; left: 7.5rem; height: 2rem;"></div>
+								<div class="Connector Horizontal Corner Right Up" style="top: 5rem; left: 5.5rem; width: 2rem;"></div>
+								<div class="Connector Vertical Corner Right" style="top: 5rem; left: 5.5rem; height: 2rem;"></div>
+								<div class="Connector Vertical Convex Right" style="top: 7rem; left: 5.5rem;"></div>
+							</div>
+
+							<div id="simple-xor-gate" class="Gate XOR" style="left: 2.5rem; top: 7rem;">
+								<span></span>
+								<span></span>
+								<div></div>
+							</div>
+							<div class="Group">
+								<div class="Connector Vertical" style="top: 12rem; left: 4.5rem; height: 2rem;"></div>
+								<div class="Result" style="left: 3rem; top: 14rem;"></div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<a href="#half-adder" id="half-adder" tabindex="2">Half Adder</a>
+		<section>
+			<div class="ShrinkWrap">
+				<p>
+					A <a href="http://en.wikipedia.org/wiki/Adder_%28electronics%29#Half_adder">half adder</a> adds two binary digits, returning the result (either 0, 1, or 10) in its two outputs.  The two outputs are called the carry (the tens digit) and the sum (the ones digit); the carry can be chained into a full adder to add more inputs.
+				</p>
+				<div class="Canvas" style="width: 12.5rem; height: 21rem;">
+					<input type="checkbox" id="half-adder-a" style="top: 0; left: 3.5rem;" />
+					<label for="half-adder-a" style="top: 0; left: 3.5rem;"></label>
+					<div class="Group">
+						<div class="Connector Vertical" style="top: 3rem; left: 5rem; height: 2rem;"></div>
+						<div class="Connector Horizontal Corner Left Up" style="top: 5rem; left: 5rem; width: 2rem;"></div>
+						<div class="Connector Vertical Corner Left" style="top: 5rem; left: 7rem; height: 6rem;"></div>
+						<div class="Connector Vertical Convex Left" style="top: 11rem; left: 7rem;"></div>
+
+						<div class="Connector Horizontal Junction Right" style="top: 7rem; left: 1rem; width: 6rem;"></div>
+						<div class="Connector Vertical Corner Right" style="top: 7rem; left: 1rem; height: 4rem;"></div>
+					</div>
+
+					<input type="checkbox" id="half-adder-b" style="top: 0; left: 9.5rem;" />
+					<label for="half-adder-b" style="top: 0; left: 9.5rem;"></label>
+					<div class="Group">
+						<div class="Connector Vertical" style="top: 3rem; left: 11rem; height: 2rem;"></div>
+						<div class="Connector Horizontal Corner Right Up" style="top: 5rem; left: 9rem; width: 2rem;"></div>
+						<div class="Connector Vertical Corner Right" style="top: 5rem; left: 9rem; height: 6rem;"></div>
+						<div class="Connector Vertical Convex Right" style="top: 11rem; left: 9rem;"></div>
+
+						<div class="Connector Horizontal Junction Right" style="top: 9rem; left: 3rem; width: 6rem;"></div>
+						<div class="Connector Vertical Corner Right" style="top: 9rem; left: 3rem; height: 2rem;"></div>
+					</div>
+
+					<div id="half-adder-xor-gate" class="Gate XOR" style="left: 6rem; top: 11rem;">
+						<span></span>
+						<span></span>
+						<div></div>
+					</div>
+					<div class="Group">
+						<div class="Connector Vertical" style="top: 16rem; left: 8rem; height: 2rem;"></div>
+						<div class="Result" style="left: 6.5rem; top: 18rem;"></div>
+					</div>
+
+					<div id="half-adder-and-gate" class="Gate AND" style="left: 0; top: 11rem;"></div>
+					<div class="Group">
+						<div class="Connector Vertical" style="top: 16rem; left: 2rem; height: 2rem;"></div>
+						<div class="Result" style="left: 0.5rem; top: 18rem;"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<a href="#full-adder" id="full-adder" tabindex="3">Full Adder</a>
+		<section>
+			<div class="ShrinkWrap">
+				<p>
+					A <a href="http://en.wikipedia.org/wiki/Adder_%28electronics%29#Full_adder">full adder</a> adds three binary digits, returning the result (0, 1, 10, or 11) in its two outputs.  The two outputs are called the carry-out (the tens digit) and the sum (the ones digit); the carry can be chained to another full adder to add more inputs.  The first input (which a carry-out can be chained to) is called the carry-in; the other two are usually called A and B (this designation is arbitrary; the inputs are completely symmetric).
+				</p>
+				<div class="Canvas" style="width: 21rem; height: 42rem;">
+					<input type="checkbox" id="full-adder-carry" style="top: 0; left: 6rem;" />
+					<label for="full-adder-carry" style="top: 0; left: 6rem;"></label>
+					<div class="Group">
+						<div class="Connector Vertical" style="top: 3rem; left: 7.5rem; height: 2rem;"></div>
+						<div class="Connector Horizontal Corner Left Up" style="top: 5rem; left: 7.5rem; width: 4rem;"></div>
+						<div class="Connector Vertical Corner Left" style="top: 5rem; left: 11.5rem; height: 13rem;"></div>
+
+						<div class="Connector Horizontal Corner Left Up" style="top: 18rem; left: 11.5rem; width: 1.5rem;"></div>
+						<div class="Connector Vertical Corner Left" style="top: 18rem; left: 13rem; height: 6rem;"></div>
+						<div class="Connector Vertical Convex Left" style="top: 24rem; left: 13rem;"></div>
+
+						<div class="Connector Horizontal Junction Right" style="top: 20rem; left: 7rem; width: 6rem;"></div>
+						<div class="Connector Vertical Corner Right" style="top: 20rem; left: 7rem; height: 4rem;"></div>
+					</div>
+
+					<input type="checkbox" id="full-adder-a" style="top: 0; left: 12rem;" />
+					<label for="full-adder-a" style="top: 0; left: 12rem;"></label>
+					<div class="Group">
+						<div class="Connector Vertical" style="top: 3rem; left: 13.5rem; height: 2rem;"></div>
+						<div class="Connector Horizontal Corner Left Up" style="top: 5rem; left: 13.5rem; width: 2rem;"></div>
+						<div class="Connector Vertical Corner Left" style="top: 5rem; left: 15.5rem; height: 6rem;"></div>
+						<div class="Connector Vertical Convex Left" style="top: 11rem; left: 15.5rem;"></div>
+
+						<div class="Connector Horizontal Junction Right" style="top: 7rem; left: 1rem; width: 14.5rem;"></div>
+						<div class="Connector Vertical Corner Right" style="top: 7rem; left: 1rem; height: 17rem;"></div>
+					</div>
+
+					<input type="checkbox" id="full-adder-b" style="top: 0; left: 18rem;" />
+					<label for="full-adder-b" style="top: 0; left: 18rem;"></label>
+					<div class="Group">
+						<div class="Connector Vertical" style="top: 3rem; left: 19.5rem; height: 2rem;"></div>
+						<div class="Connector Horizontal Corner Right Up" style="top: 5rem; left: 17.5rem; width: 2rem;"></div>
+						<div class="Connector Vertical Corner Right" style="top: 5rem; left: 17.5rem; height: 6rem;"></div>
+						<div class="Connector Vertical Convex Right" style="top: 11rem; left: 17.5rem;"></div>
+
+						<div class="Connector Horizontal Junction Right" style="top: 9rem; left: 3rem; width: 14.5rem;"></div>
+						<div class="Connector Vertical Corner Right" style="top: 9rem; left: 3rem; height: 15rem;"></div>
+					</div>
+
+					<div id="full-adder-xor-gate-input" class="Gate XOR" style="left: 14.5rem; top: 11rem;">
+						<span></span>
+						<span></span>
+						<div></div>
+					</div>
+					<div class="Group">
+						<div class="Connector Vertical" style="top: 16rem; left: 16.5rem; height: 2rem;"></div>
+						<div class="Connector Horizontal Corner Right Up" style="top: 18rem; left: 15rem; width: 1.5rem;"></div>
+						<div class="Connector Vertical Corner Right" style="top: 18rem; left: 15rem; height: 6rem;"></div>
+						<div class="Connector Vertical Convex Right" style="top: 24rem; left: 15rem;"></div>
+
+						<div class="Connector Horizontal Junction Right" style="top: 22rem; left: 9rem; width: 6rem;"></div>
+						<div class="Connector Vertical Corner Right" style="top: 22rem; left: 9rem; height: 2rem;"></div>
+					</div>
+
+					<div id="full-adder-xor-gate-carry" class="Gate XOR" style="left: 12rem; top: 24rem;">
+						<span></span>
+						<span></span>
+						<div></div>
+					</div>
+					<div class="Group">
+						<div class="Connector Vertical" style="top: 29rem; left: 14rem; height: 10rem;"></div>
+						<div class="Result" style="left: 12.5rem; top: 39rem;"></div>
+					</div>
+
+					<div id="full-adder-and-gate-input" class="Gate AND" style="left: 0; top: 24rem;"></div>
+					<div class="Group">
+						<div class="Connector Vertical" style="top: 29rem; left: 2rem; height: 2rem;"></div>
+						<div class="Connector Horizontal Corner Left Up" style="top: 31rem; left: 2rem; width: 2rem;"></div>
+						<div class="Connector Vertical Corner Left" style="top: 31rem; left: 4rem; height: 2rem;"></div>
+						<div class="Connector Vertical Convex Left" style="top: 33rem; left: 4rem;"></div>
+					</div>
+
+					<div id="full-adder-and-gate-sum" class="Gate AND" style="left: 6rem; top: 24rem;"></div>
+					<div class="Group">
+						<div class="Connector Vertical" style="top: 29rem; left: 8rem; height: 2rem;"></div>
+						<div class="Connector Horizontal Corner Right Up" style="top: 31rem; left: 6rem; width: 2rem;"></div>
+						<div class="Connector Vertical Corner Right" style="top: 31rem; left: 6rem; height: 2rem;"></div>
+						<div class="Connector Vertical Convex Right" style="top: 33rem; left: 6rem;"></div>
+					</div>
+
+					<div id="full-adder-or-gate-carry-out" class="Gate OR" style="left: 3rem; top: 33rem;">
+						<span></span>
+						<span></span>
+					</div>
+					<div class="Group">
+						<div class="Connector Vertical" style="top: 37rem; left: 5rem; height: 2rem;"></div>
+						<div class="Result" style="left: 3.5rem; top: 39rem;"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+					
+		<a href="#decimal-adder" id="decimal-adder" tabindex="5">Decimal Adder</a>
+		<section>
+			<div class="ShrinkWrap">
+				<p>
+					This has nothing to do with logic gates, but it's still a cool demo.  Click any binary digit toggle between 1 and 0.
+					The sum of the two numbers will be computed &ndash; in pure CSS &ndash; and displayed in decimal form below.
+				</p>
+				<div class="DecimalAdder">
+					<input type="checkbox" id="decimal-adder-a-4" /><div></div>
+					<label for="decimal-adder-a-4"></label>
+					<input type="checkbox" id="decimal-adder-a-3" /><div></div>
+					<label for="decimal-adder-a-3"></label>
+					<input type="checkbox" id="decimal-adder-a-2" /><div></div>
+					<label for="decimal-adder-a-2"></label>
+					<input type="checkbox" id="decimal-adder-a-1" /><div></div>
+					<label for="decimal-adder-a-1"></label>
+					<input type="checkbox" id="decimal-adder-a-0" /><div></div>
+					<label for="decimal-adder-a-0"></label>
+
+					<input type="checkbox" id="decimal-adder-b-4" /><div></div>
+					<label for="decimal-adder-b-4"></label>
+					<input type="checkbox" id="decimal-adder-b-3" /><div></div>
+					<label for="decimal-adder-b-3"></label>
+					<input type="checkbox" id="decimal-adder-b-2" /><div></div>
+					<label for="decimal-adder-b-2"></label>
+					<input type="checkbox" id="decimal-adder-b-1" /><div></div>
+					<label for="decimal-adder-b-1"></label>
+					<input type="checkbox" id="decimal-adder-b-0" /><div></div>
+					<label for="decimal-adder-b-0"></label>
+
+				</div>
+			</div>
+		</section>
+		<section class="DefaultTab">
+			<div class="ShrinkWrap">
+				<h1>Hello!</h1>
+				<h2>Implementing logic gates and adders in pure CSS</h2>
+				<p>
+					This is an experiment demonstrating the power of CSS selectors.  Using
+					<a href="http://lesscss.org">LESS</a> to generate selectors from declared
+					logical operations, I implemented simple <a href="http://en.wikipedia.org/wiki/Logic_gate">logic gates</a>,
+					as well as <a href="http://en.wikipedia.org/wiki/Adder_%28electronics%29">half- and full- adders</a>.
+				</p>
+				<p>To get started, click a tab above.</p>
+				<button onclick="window.location.href = 'https://stackhowto.com';"> Click here </button>
+			</div>
+			</div>
+		</section>
+	</nav>
+	
+</body>
+</html>
